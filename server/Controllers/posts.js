@@ -33,9 +33,12 @@ module.exports = {
     },
 
 
-    readPost: (req, res) => {
-        req.app.get('db').Posts.read_post(req.params)
-        .then(post => post[0] ? res.status(200).send(post[0]) : res.status(200).send({}))
+    readPost: async (req, res) => {
+        const db = req.app.get('db')
+        const post = await db.Posts.read_post()
+        console.log(post)
+
+        res.status(200).send(post)
     },
 
     deletePost: (req, res) => {
@@ -73,11 +76,6 @@ module.exports = {
             return res.status(403).send(`Sorry, that won't  work!`)
         }
     },
-
-    // readTraining: (req, res) => {
-    //     req.app.get('db').post.read_post(req.params.id)
-    //     .then(training => training[0] ? res.status(200).send(training[0]) : res.status(200).send({}))
-    // },
 
     deleteTraining: (req, res) => {
         req.app.get('db').post.delete_training(req.params.id)

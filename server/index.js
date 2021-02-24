@@ -44,9 +44,9 @@ app.put('/api/post/:post_id', ctrl.editPost);
 app.get('/api/post/', ctrl.readPost);
 
 app.post('/api/add/training', ctrl.addTraining);
-// app.delete('/api/home/:id', ctrl.deleteTraining);
-app.put('/api/home/:id', ctrl.editTraining);
-// app.get('/api/home', ctrl.readTraining);
+app.delete('/api/post/remove/:id', ctrl.deleteTraining);
+app.put('/api/post/:post_id', ctrl.editTraining);
+
 
 
 app.listen(SERVER_PORT, () => console.log(`Listening on port: ${SERVER_PORT}`))
