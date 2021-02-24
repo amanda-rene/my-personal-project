@@ -4,13 +4,13 @@ module.exports = {
     register: async (req, res) => {
         const db = req.app.get('db');
         const {email, password, username} = req.body;
-        const foundUser = await db.check_user(email);
+        const foundUser = await db.User.check_user(email);
         if(foundUser[0]){
             return res.status(400).send('User already exists.')
         }
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(password, salt);
-        const [newUser] = await db.add_user([email, username, hash]);
+        const [newUser] = await db.User.add_user([email, username, hash]);
 
         req.session.user = {
             userId: newUser.user_id,
@@ -23,12 +23,13 @@ module.exports = {
     login: async (req, res) => {
         const db = req.app.get('db');
         const {email, password} = req.body;
-        const [foundUser] = await db.check_user(email);
+        const [foundUser] = await db.User.check_user(email);
         if (!foundUser){
             return res.status(401).send('Incorrect Login Info')
         }
         const authenticated = bcrypt.compareSync(password, foundUser.password);
         if (authenticated){
+            console.log('Found User', foundUser)
             req.session.user = {
                 userId: foundUser.user_id,
                 email: foundUser.email,
