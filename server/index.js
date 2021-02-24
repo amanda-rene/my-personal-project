@@ -32,7 +32,7 @@ massive({
     console.log('Connected to DB!')
 })
 // Auth Endpoints
-app.post('/auth/register', auth.register);
+app.post('/api/register', auth.register);
 app.post('/api/login', auth.login);
 app.post('/api/logout', auth.logout);
 app.get('/api/home', auth.userSession);
