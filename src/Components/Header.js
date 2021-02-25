@@ -41,7 +41,7 @@ class Header extends Component {
                     <ul>
                         <li><Link to="/api/home">Home</Link></li>
                         <li><Link to='/logout'>Logout</Link></li>
-                        <li><Link to="/api/home">About</Link></li>
+                        <li><Link to="/about">About</Link></li>
                         <li><Link to='/logout'>Add Training</Link></li>
                         
                     </ul>

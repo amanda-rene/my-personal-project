@@ -55,7 +55,9 @@ class Auth extends Component {
 
     render(){
         return <div className='auth'>
+            <header className='header'><h1>Welcome!!!</h1></header>
             {!this.state.newUser ?
+            // <header className='header'>Welcome!</header>
             <form onSubmit={this.login}>
                 <h2>Login</h2>
                 <input
