@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import {loginUser} from '../redux/userReducer';
 import {connect} from 'react-redux';
+import {loginUser} from '../redux/userReducer';
+import axios from 'axios';
 
-class Login extends Component{
+class Auth extends Component {
     constructor(){
         super();
         this.state = {
@@ -15,12 +15,11 @@ class Login extends Component{
     }
 
     login = async (e) => {
-        e.preventDefault();
         const {email, password} = this.state;
         try {
-            const user = await axios.post('api/login', {email, password})
+            const user = await axios.post('/api/login', {email, password})
             this.props.loginUser(user.data)
-            this.props.history.push('/home')
+            this.props.history.push('./home')
         }
         catch {
             alert('Failed Login Attempt :/')
@@ -28,15 +27,14 @@ class Login extends Component{
     }
 
     register = async (e) => {
-        e.preventDefault();
-        const {email, password, username} = this.state;
+        const {email, username, password} = this.state
         try {
-            const user = await axios.get('/api.register', {email, password, username})
-            this.props.loginUser(user.data)
+            const user = await axios.post('/api/register', email, username, password)
+            this.props.loginUser(user.data);
             this.props.history.push('/home')
         }
         catch {
-            alert('Failed Register Attempt :/')
+            alert ('Failed Login Attempt :/')
         }
     }
 
@@ -46,61 +44,67 @@ class Login extends Component{
         })
     }
 
-    changeHandler =e => {
+    changeHandler = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
     render(){
-        return <div classname="login">
+        return <div className='auth'>
             {!this.state.newUser ?
             <form onSubmit={this.login}>
                 <h2>Login</h2>
                 <input
                 type='text'
                 placeholder='email'
+                name='email'
                 value={this.state.email}
                 onChange={this.changeHandler}/>
-                <input 
+
+                <input
                 type='password'
                 placeholder='password'
+                name='password'
                 value={this.state.password}
                 onChange={this.changeHandler}/>
-                <input
+
+                <input 
                 type='submit'
                 value='Login'/>
-                <button onClick={this.toggleNewUser}>Sign Up Here!</button>
             </form>
             :
+            
             <form onSubmit={this.register}>
-                <h2>REGISTER</h2>
+                <h2>Register</h2>
                 <input
                 type='text'
                 placeholder='email'
                 name='email'
                 value={this.state.email}
                 onChange={this.changeHandler}/>
-                <input
+
+                <input 
                 type='text'
                 placeholder='username'
                 name='username'
                 value={this.state.username}
                 onChange={this.changeHandler}/>
-                <input 
-                type='text'
+
+                <input
+                type='password'
                 placeholder='password'
                 name='password'
                 value={this.state.password}
                 onChange={this.changeHandler}/>
-                <button onClick={this.toggleNewUser}>Log In Here</button>
+
+                <button onClick={this.toggleNewUser}>Login Here!</button>
             </form>
-    }
+        }
+        
+    
         </div>
     }
-
 }
-
 const mapStateToProps = state => state
-
-export default connect(mapStateToProps, {loginUser})(Login);
+export default connect(mapStateToProps, {loginUser})(Auth);
