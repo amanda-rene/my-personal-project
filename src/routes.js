@@ -5,5 +5,6 @@ import Auth from './Components/Auth';
 export default (
     <Switch>
         <Route exact path="/login" component={Auth}/>
+        {/* <Route path='/logout' component={Auth}/> */}
     </Switch>
 )

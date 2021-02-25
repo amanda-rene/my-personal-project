@@ -20,18 +20,19 @@ class Header extends Component {
             <div>
                 <h1>Welcome, {this.props.user.username}</h1>
                 <p>
-                 <Link to="/login">Login/Signup</Link>
+                    <Link to="/api/home">Home</Link>
                 </p>
-                <p>
-                    <Link to="/home">Home</Link>
-                </p>
-                <button onClick={this.logout}>Logout</button>
-                <Link to='/register'>
-                    
-                </Link>
+                
+                <Link to='/api/logout'>Logout</Link>
+  
             </div>
         :
-        <h1>Please Login!</h1>    
+        <div>
+            <h1>Please Login!</h1>
+            <p>
+                <Link to='/login'>Login/Signup</Link>
+            </p>
+         </div>   
         }
         </div>
     }

@@ -15,6 +15,7 @@ class Auth extends Component {
     }
 
     login = async (e) => {
+        e.preventDefault();
         const {email, password} = this.state;
         try {
             const user = await axios.post('/api/login', {email, password})
@@ -27,6 +28,7 @@ class Auth extends Component {
     }
 
     register = async (e) => {
+        e.preventDefault();
         const {email, username, password} = this.state
         try {
             const user = await axios.post('/api/register', email, username, password)
@@ -37,6 +39,7 @@ class Auth extends Component {
             alert ('Failed Login Attempt :/')
         }
     }
+
 
     toggleNewUser = () => {
         this.setState({
