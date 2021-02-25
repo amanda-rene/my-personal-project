@@ -54,7 +54,9 @@ class Header extends Component {
             </div>
         :
         <div>
-            <h1>Please Login!</h1>
+            <header className='header'>
+                <h1>Please Login!</h1>
+                </header>
             <p>
                 <Link to='/login'>Login/Signup</Link>
             </p>

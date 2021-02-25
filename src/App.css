@@ -11,7 +11,19 @@ header {
   color: aqua;
 }
 
+p {
+  padding-top: 100px;
+}
 
+.login-header{
+  height: 80px;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top:0;
+  color: aqua;
+  
+}
 
 .nav-bar{
   height: 100vh;
