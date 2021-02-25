@@ -19,7 +19,7 @@ class Auth extends Component {
         try {
             const user = await axios.post('/api/login', {email, password})
             this.props.loginUser(user.data)
-            this.props.history.push('./home')
+            this.props.history.push('/home')
         }
         catch {
             alert('Failed Login Attempt :/')
@@ -72,6 +72,7 @@ class Auth extends Component {
                 <input 
                 type='submit'
                 value='Login'/>
+                <button onClick={this.toggleNewUser}>Sign Up Here!</button>
             </form>
             :
             
@@ -98,7 +99,10 @@ class Auth extends Component {
                 value={this.state.password}
                 onChange={this.changeHandler}/>
 
-                <button onClick={this.toggleNewUser}>Login Here!</button>
+                <input
+                type='Submit'
+                value='Login'/>
+                <button onClick={this.toggleNewUser}>Register Here!</button>
             </form>
         }
         

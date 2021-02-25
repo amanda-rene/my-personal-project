@@ -18,10 +18,17 @@ class Header extends Component {
         return <div className='Header'>
             {this.props.isLoggedIn ?
             <div>
-                <h5>Welcome, {this.props.user.username}</h5>
-                <Link to="/">Login/Signup</Link>
-                <Link to="/home">Home</Link>
+                <h1>Welcome, {this.props.user.username}</h1>
+                <p>
+                 <Link to="/login">Login/Signup</Link>
+                </p>
+                <p>
+                    <Link to="/home">Home</Link>
+                </p>
                 <button onClick={this.logout}>Logout</button>
+                <Link to='/register'>
+                    
+                </Link>
             </div>
         :
         <h1>Please Login!</h1>    
