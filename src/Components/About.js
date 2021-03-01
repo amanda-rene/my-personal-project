@@ -28,7 +28,7 @@ class About extends Component{
                         <li><Link to="/api/home">Home</Link></li>
                         <li><Link to='/logout'>Logout</Link></li>
                         <li><Link to="/api/home">About</Link></li>
-                        <li><Link to='/logout'>Add Training</Link></li>
+                        <li><Link to='/add/post'>Add Training</Link></li>
                         
                     </ul>
                 </nav>

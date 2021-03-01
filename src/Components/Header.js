@@ -42,14 +42,13 @@ class Header extends Component {
                         <li><Link to="/api/home">Home</Link></li>
                         <li><Link to='/logout'>Logout</Link></li>
                         <li><Link to="/about">About</Link></li>
-                        <li><Link to='/logout'>Add Training</Link></li>
+                        <li><Link to='/add/post'>Add Training</Link></li>
                         
                     </ul>
                 </nav>
                 <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
                </header>
-
-                
+                    
   
             </div>
         :
