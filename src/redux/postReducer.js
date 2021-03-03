@@ -13,7 +13,8 @@ const initialState = {
 const ADD_POST = "ADD_POST";
 
 export function addPost (technique, notes, dateTrained, timeTraining, timeRolling){
-    const post = axios.post('/api/add/post', {technique, notes, dateTrained, timeTraining, timeRolling}).then(res => res.data)
+    const post = axios.post('/api/add/post', 
+    {technique, notes, dateTrained, timeTraining, timeRolling}).then(res => res.data)
     return{
         type: ADD_POST,
         payload: post

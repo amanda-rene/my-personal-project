@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import DayPicker from './DayPicker'
+// import DayPicker from './DayPicker'
+import {DatePicker} from 'antd'
 import postReducer from '../redux/postReducer'
-import {TimePicker} from 'antd';
+// import {TimePicker} from 'antd';
 import 'antd/dist/antd.css';
-import moment from 'moment';
+// import moment from 'moment';
+import {TimePicker} from '@material-ui/pickers'
+// import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+// import DateFnsUtils from '@date-io/date-fns';
+import TextField from '@material-ui/core/TextField'
+
+
 class Post extends Component{
     constructor(props){
         super(props);
@@ -30,7 +37,8 @@ class Post extends Component{
         e.preventDefault();
         const {technique, notes, dateTrained, timeTraining, timeRolling} = this.state;
         try {
-            const post  = await axios.post('/api/add/post', {technique, notes, dateTrained, timeTraining, timeRolling})
+            const post  = await axios.post
+            ('/api/add/post', {technique, notes, dateTrained, timeTraining, timeRolling})
             this.props.addPost(post.data)
             this.props.history.push('/post')
         }
@@ -39,19 +47,6 @@ class Post extends Component{
         }
     }
 
-    // addTraining = async (e) => {
-    //     e.preventDefault();
-    //     const {dateTrained, timeRolling, timeTrained} = this.state;
-    //     try{
-    //         const training = await axios.post('/api/add/post', {dateTrained, timeTrained, timeRolling})
-    //         this.props.addTraining(training.data)
-    //         this.props.history.push('/post')
-    //     }
-    //     catch {
-    //         alert(`Couldn't add post :/`)
-    //     }
-    // }
-
     componentDidMount(){
         axios.post('api/add/post')
         .then (res => {
@@ -59,11 +54,13 @@ class Post extends Component{
         })
     }
 
-    changeHandler = e => {
+    changeHandler = (e) => {
+        // console.log(e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
 
     toggleNewPost = () => {
         this.setState({
@@ -71,15 +68,11 @@ class Post extends Component{
         })
     }
 
-    onTimeSelection = (value, timeString) => {
-        console.log("Value:", value,"Time String:", timeString)
-        this.setState({ time: value, formattedTime: timeString})
-    }
+ 
 
     render(){
         
-       
-
+    
         return (
             <div>
                 <header>
@@ -103,26 +96,56 @@ class Post extends Component{
                     onChange={this.changeHandler}/>
               
                 <h3>Date Trained</h3>
-                <DayPicker
+                <TextField
                     type='date'
                     name='dateTrained'
-                    value={this.state.dateTrained}
+                    
+                    value={this.dateTrained}
                     onChange={this.changeHandler}/>
 
                 <h3>Time Trained</h3>
-                    <TimePicker 
-                    name='timeTrained'
-                    value={this.state.timeTrained}
-                    onChange={this.onTimeSelection}
-                    showNow={false}
-                    minuteStep={15}/>
+                    <h4>Start</h4>
+                    <TextField
+                    type='time'
+                    name='timeTraining'
+                    value={this.timeTraining}
+                    
+                    
+                    format="HH:mm"
+                    onChange={this.changeHandler}
+                    />
+                    <h4>Finish</h4>
+                    <TextField
+                    type='time'
+                    name='timeTraining'
+                    value={this.timeTraining}
+                    
+                    
+                    format="HH:mm"
+                    onChange={this.changeHandler}
+                    />
+            
                 <h3>Time Rolling</h3>
-                    <TimePicker 
+                    <input 
+                    type='number'
+                    min='0'
+                    max='10'
+                    placeholder='hours'
+                    />
+                    <input
+                    type='number'
+                    min='0'
+                    max='59'
+                    placeholder='minutes'
                     name='time rolling'
                     value={this.timeRolling}
+                    onChange={this.changeHandler}/>
+                    {/* <TimePicker 
+                    name='timeRolling'
+                    value={this.timeRolling}
                     showNow={false}
-                    onChange={this.onTimeSelection}
-                    minuteStep={5}/>
+                    onChange={this.changeHandler}
+                    minuteStep={5}/> */}
                 
 
                
