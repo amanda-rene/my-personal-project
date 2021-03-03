@@ -4,7 +4,7 @@ import Auth from './Components/Auth';
 import Logout from './Components/Logout'
 import About from './Components/About'
 import Post from './Components/Post'
-import { Home } from '@material-ui/icons';
+import Home from './Components/Home'
 
 export default (
     <Switch>

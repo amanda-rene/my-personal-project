@@ -9,6 +9,8 @@ const initialState = {
 }
 
 const ADD_POST = "ADD_POST";
+const READ_POST = "READ_POST"
+
 
 export function addPost (technique, notes, dateTrained){
     const post = axios.post('/api/add/post', 

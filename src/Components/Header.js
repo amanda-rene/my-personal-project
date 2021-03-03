@@ -22,6 +22,10 @@ class Header extends Component {
         axios.post('/api/logout')
     }
 
+    readPost = () => {
+        axios.get('/api/home')
+    }
+
     toggleShowFunc = () => {
         this.setState((prevState)=> {
             return{

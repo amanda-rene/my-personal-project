@@ -48,40 +48,5 @@ module.exports = {
         .then( post => res.sendStatus(200))
     },
 
-//     addTraining: async (req, res) => {
-//         const db = req.app.get('db');
-//         // const {userId} = req.session.user;
-//         const userId = 2
-//         const {date_trained, time_trained, time_rolling, post_id} = req.body
-//         if(userId) {
-//             const training  = await db.Training.add_training ([
-//                 date_trained, time_trained, time_rolling, post_id
-//             ])
-//             res.status(200).send(training)
-//         }
-//         if(!userId){
-//             return res.status(403).send(`Sorry, that won't  work!`)
-//         }
-//     },
 
-//     editTraining: async (req, res) => {
-//         const db = req.app.get('db');
-//         const {id} = req.session.user;
-//         const {date_trained, time_trained, time_rolling} = req.body
-//         if(id) {
-//             const training = await db.Training.edit_training ([
-//                 date_trained, time_trained, time_rolling
-//             ])
-//             res.status(200).send(training)
-//         }
-//         if(!id){
-//             return res.status(403).send(`Sorry, that won't  work!`)
-//         }
-//     },
-
-//     deleteTraining: (req, res) => {
-//         req.app.get('db').post.delete_training(req.params.id)
-//         .then(training => res.sendStatus(200))
-//     }
-    
 }

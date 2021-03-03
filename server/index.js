@@ -41,11 +41,8 @@ app.get('/api/home', auth.userSession);
 app.post('/api/add/post', ctrl.addPost);
 app.delete('/api/post/remove/:id', ctrl.deletePost);
 app.put('/api/post/:post_id', ctrl.editPost);
-app.get('/api/post/', ctrl.readPost);
+app.get('/api/home/', ctrl.readPost);
 
-// app.post('/api/add/post', ctrl.addTraining);
-// app.delete('/api/post/remove/:id', ctrl.deleteTraining);
-// app.put('/api/post/:post_id', ctrl.editTraining);
 
 
 
