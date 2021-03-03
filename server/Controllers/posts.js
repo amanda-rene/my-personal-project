@@ -3,11 +3,11 @@ module.exports = {
         const db = req.app.get('db');
         // const {userId} = req.session.user;
         const userId = 1;
-        const {technique, notes, dateTrained, timeTraining, timeRolling} = req.body
+        const {technique, notes, dateTrained} = req.body
         console.log(req.body)
         if(userId){
             const post = await db.Posts.add_post([
-                technique, notes, dateTrained, timeTraining, timeRolling, userId
+                technique, notes, dateTrained, userId
             ])
             res.status(200).send(post)
         }
@@ -16,7 +16,7 @@ module.exports = {
         }
     },
 
-    
+
     editPost: async (req, res) => {
         const db = req.app.get('db');
         // const {userId} = req.session.user;

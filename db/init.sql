@@ -12,8 +12,7 @@ CREATE TABLE posts
 	technique VARCHAR (50),
 	notes VARCHAR (500),
 	date_trained DATE,
-	time_training INT,
-	time_rolling INT,
+	
 	user_id INT REFERENCES users(user_id)
 );
 

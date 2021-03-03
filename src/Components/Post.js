@@ -23,8 +23,7 @@ class Post extends Component{
             technique: '',
             notes: '',
             dateTrained: '',
-            timeTraining: '',
-            timeRolling: '',
+            
             newPost: false,
             
         }
@@ -35,12 +34,12 @@ class Post extends Component{
 
     addPost = async (e) => {
         e.preventDefault();
-        const {technique, notes, dateTrained, timeTraining, timeRolling} = this.state;
+        const {technique, notes, dateTrained } = this.state;
         try {
             const post  = await axios.post
-            ('/api/add/post', {technique, notes, dateTrained, timeTraining, timeRolling})
+            ('/api/add/post', {technique, notes, dateTrained })
             this.props.addPost(post.data)
-            this.props.history.push('/post')
+            this.props.history.push('/home')
         }
         catch {
             alert (`Couldn't add post :/`)
@@ -103,55 +102,13 @@ class Post extends Component{
                     value={this.dateTrained}
                     onChange={this.changeHandler}/>
 
-                <h3>Time Trained</h3>
-                    <h4>Start</h4>
-                    <TextField
-                    type='time'
-                    name='timeTraining'
-                    value={this.timeTraining}
-                    
-                    
-                    format="HH:mm"
-                    onChange={this.changeHandler}
-                    />
-                    <h4>Finish</h4>
-                    <TextField
-                    type='time'
-                    name='timeTraining'
-                    value={this.timeTraining}
-                    
-                    
-                    format="HH:mm"
-                    onChange={this.changeHandler}
-                    />
-            
-                <h3>Time Rolling</h3>
-                    <input 
-                    type='number'
-                    min='0'
-                    max='10'
-                    placeholder='hours'
-                    />
-                    <input
-                    type='number'
-                    min='0'
-                    max='59'
-                    placeholder='minutes'
-                    name='time rolling'
-                    value={this.timeRolling}
-                    onChange={this.changeHandler}/>
-                    {/* <TimePicker 
-                    name='timeRolling'
-                    value={this.timeRolling}
-                    showNow={false}
-                    onChange={this.changeHandler}
-                    minuteStep={5}/> */}
-                
+               
 
                
 
                 <br></br>
-                <button onClick={this.toggleNewPost} type='submit'>Add Post</button>
+                {/* <input type='submit' value='Add post'/> */}
+                <button onClick={this.toggleNewPost}>Add Post</button>
                </form>
                 
                 
