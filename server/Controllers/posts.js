@@ -20,12 +20,12 @@ module.exports = {
     editPost: async (req, res) => {
         const db = req.app.get('db');
         // const {userId} = req.session.user;
-        const userId = 2;
+        const userId = 1;
         const {post_id} = req.params;
-        const {technique, notes} = req.body
+        const {technique, notes, dateTrained} = req.body
         if(userId){
             const post = await db.Posts.edit_post ([
-                technique, notes, post_id
+                technique, notes, dateTrained, post_id
             ])
             res.status(200).send(post)
         }
@@ -38,15 +38,19 @@ module.exports = {
     readPost: async (req, res) => {
         const db = req.app.get('db')
         const post = await db.Posts.read_post()
-        console.log(post)
-
+        // console.log(post)
         res.status(200).send(post)
     },
 
-    deletePost: (req, res) => {
-        req.app.get('db').Posts.delete_post(req.params.id)
-        .then( post => res.sendStatus(200))
-    },
+    deletePost: async (req, res) => {
+        const db = req.app.get('db')
+        const {post_id} = req.params
+        const {userId} = req.session.user
+        const post = await db.Posts.delete_post([post_id, userId])
+        res.status(200).send(post)
+    }
+
+   
 
 
 }

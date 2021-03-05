@@ -39,9 +39,9 @@ app.get('/api/home', auth.userSession);
 
 // Post and Training Endpoints
 app.post('/api/add/post', ctrl.addPost);
-app.delete('/api/post/remove/:id', ctrl.deletePost);
+app.delete('/api/post/remove/:post_id', ctrl.deletePost);
 app.put('/api/post/:post_id', ctrl.editPost);
-app.get('/api/home/', ctrl.readPost);
+app.get('/api/posts', ctrl.readPost);
 
 
 

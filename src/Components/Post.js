@@ -30,7 +30,7 @@ class Post extends Component{
             const post  = await axios.post
             ('/api/add/post', {technique, notes, dateTrained })
             // this.props.addPost(post.data)
-            this.props.history.push('/api/home')
+            this.props.history.push('/home')
         }
         catch {
             alert (`Couldn't add post :/`) 
@@ -75,7 +75,7 @@ class Post extends Component{
                 <header className='header'>
                     <nav className={`nav-bar ${this.state.toggleShow ? "show" : ""}`}>
                     <ul>
-                        <li><Link to="/api/home">Home</Link></li>
+                        <li><Link to="/home">Home</Link></li>
                         <li><Link to='/logout'>Logout</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to='/add/post'>Add Training</Link></li>

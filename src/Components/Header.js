@@ -43,7 +43,7 @@ class Header extends Component {
                 
                 <nav className={`nav-bar ${this.state.toggleShow ? "show" : ""}`}>
                     <ul>
-                        <li><Link to="/api/home">Home</Link></li>
+                        <li><Link to="/home">Home</Link></li>
                         <li><Link to='/logout'>Logout</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to='/add/post'>Add Training</Link></li>
@@ -70,6 +70,6 @@ class Header extends Component {
 }
 
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => state.userReducer;
 
 export default connect(mapStateToProps, {getUser})(Header);
