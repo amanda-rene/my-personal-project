@@ -58,9 +58,10 @@ class Auth extends Component {
             <header className='header'><h1>Welcome!!!</h1></header>
             {!this.state.newUser ?
             
-            <form onSubmit={this.login}>
+            <form className='login-form' onSubmit={this.login}>
                 <h2>Login</h2>
                 <input
+                className='form-field'
                 type='text'
                 placeholder='email'
                 name='email'
@@ -68,22 +69,67 @@ class Auth extends Component {
                 onChange={this.changeHandler}/>
 
                 <input
+                className='form-field'
                 type='password'
                 placeholder='password'
                 name='password'
                 value={this.state.password}
                 onChange={this.changeHandler}/>
 
-                <input 
+                <button 
+               
                 type='submit'
-                value='Login'/>
-                <button onClick={this.toggleNewUser}>Sign Up Here!</button>
+                value='Login'
+                style={{
+                        background: "#3D94F6",
+                        backgroundImage: "-webkit-linear-gradient(top, #3D94F6, #1E62D0)",
+                        backgroundImage: "-moz-linear-gradient(top, #3D94F6, #1E62D0)",
+                        backgroundImage: "-ms-linear-gradient(top, #3D94F6, #1E62D0)",
+                        backgroundImage: "-o-linear-gradient(top, #3D94F6, #1E62D0)",
+                        backgroundImage: "-webkit-gradient(to bottom, #3D94F6, #1E62D0)",
+                        // -webkit-border-radius: "20px",
+                        // -moz-border-radius: "20px",
+                        borderRadius: "20px",
+                        height: "7px",
+                        lineHeight: "7px",
+                        color: "#FFFFFF",
+                        fontFamily: "Brush Script MT",
+                        width: "92px",
+                        fontSize: "16px",
+                        padding: "13px",
+                        webkitBoxShadow: "inset 1px 1px 20px 0 #934003",
+                        mozBoxShadow: "inset 1px 1px 20px 0 #934003",
+                        boxShadow:" inset 1px 1px 20px 0 #934003",
+                        textShadow: "1px 1px 20px #000000",
+                        border: "groove #B54705 1px",
+                        textDecoration: "none",
+                        display: "inline-block",
+                        cursor:" pointer",
+                        textAlign: "center"
+                      }
+                      
+                    //   button:hover {
+                    //     border: ridge #337FED 1px,
+                    //     background: #1E62D0,
+                    //     background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6),
+                    //     background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6),
+                    //     background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6),
+                    //     background-image: -o-linear-gradient(top, #1E62D0, #3D94F6),
+                    //     background-image: -webkit-gradient(to bottom, #1E62D0, #3D94F6),
+                    //     -webkit-border-radius: 20px,
+                    //     -moz-border-radius: 20px,
+                    //     border-radius: 20px,
+                    //     text-decoration: none
+                    //   } 
+                }>Login</button>
+                <button  onClick={this.toggleNewUser}>Sign Up!</button>
             </form>
             :
             
-            <form onSubmit={this.register}>
+            <form className='reg-form' onSubmit={this.register}>
                 <h2>Register</h2>
                 <input
+                className='form-field'
                 type='text'
                 placeholder='email'
                 name='email'
@@ -91,6 +137,7 @@ class Auth extends Component {
                 onChange={this.changeHandler}/>
 
                 <input 
+                className='form-field'
                 type='text'
                 placeholder='username'
                 name='username'
@@ -98,6 +145,7 @@ class Auth extends Component {
                 onChange={this.changeHandler}/>
 
                 <input
+                className='form-field'
                 type='password'
                 placeholder='password'
                 name='password'
@@ -107,7 +155,7 @@ class Auth extends Component {
                 <input
                 type='Submit'
                 value='Login'/>
-                <button onClick={this.toggleNewUser}>Register Here!</button>
+                <button className='button' onClick={this.toggleNewUser}>Register Here!</button>
             </form>
         }
         

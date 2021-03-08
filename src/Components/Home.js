@@ -3,18 +3,18 @@ import {Link} from 'react-router-dom';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import {connect} from 'react-redux';
 import {readPost, deletePost} from '../redux/postReducer'
-// import {deletePost} from '../redux/postReducer'
-// import {getUser} from '../redux/userReducer'
+// import {Bar} from 'react-chartjs-2'
 import axios from 'axios'
+import Chart from './Chart'
 
 
 class Home extends Component{
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             toggleShow: false,
-            
+    
         }
     }
 
@@ -25,11 +25,6 @@ class Home extends Component{
             this.props.readPost(res.data)
           
         })
-
-        // axios.delete('/api/post/remove/:post_id')
-        // .then(res => {
-        //     this.props.deletePost(res.data)
-        // })
         
     }
     
@@ -47,17 +42,17 @@ class Home extends Component{
 
     }
 
-    handleEdit = postId => {
-        axios.put(`/api/post/${postId}`)
-        .then(res => {this.props.deletePost(res.data)} )
-    }
+    // handleEdit = postId => {
+    //     axios.put(`/api/post/${postId}`)
+    //     .then(res => {this.props.deletePost(res.data)} )
+    // }
   
-    // const deletePost = this.props.post.delete((post) => post === post.id)    
+      
     render(){
     // console.log(this.props)
     const readPost = this.props.post.map((p)=> (<p>Date Trained: {p.dateTrained} Technique: {p.technique} Notes: {p.notes} 
-    <button onClick={() => this.handleDelete(p.post_id)}>Delete Post</button> 
-    <button onClick={() => this.handleEdit(p.post_id)}>Edit Post</button></p> )      
+    <button onClick={() => this.handleDelete(p.post_id)}>Delete</button> 
+    <button onClick={() => this.handleEdit(p.post_id)}>Edit</button></p> )      
         )
     
   
@@ -69,16 +64,24 @@ class Home extends Component{
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to='/logout'>Logout</Link></li>
                         <li><Link to="/about">About</Link></li>
-                        <li><Link to='/post'>Add Training</Link></li>
+                        <li><Link to='/add/post'>Add Training</Link></li>
                         
                     </ul>
                 </nav>
                 <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
+        
         </header>
 
-        <div>
+     
+
+        <div 
+        style={{
+            color: 'white'
+        }}>
             {readPost}
-            {/* <button onClick={deletePost}>Delete</button> */}
+           
+           <Chart/>
+            
         </div>
         
         

@@ -21,13 +21,21 @@ class About extends Component{
 
     render(){
     return(
-        <div>
-        <header className='header'><h1>About 'whatever my app name is'</h1>
+        <div
+        style={{
+            display:"flex"
+        }}>
+        <header className='header'><h1
+            style={{
+                color: "aqua",
+                
+            }}
+        >About 'whatever my app name is'</h1>
         <nav className={`nav-bar ${this.state.toggleShow ? "show" : ""}`}>
                     <ul>
-                        <li><Link to="/api/home">Home</Link></li>
+                        <li><Link to="/home">Home</Link></li>
                         <li><Link to='/logout'>Logout</Link></li>
-                        <li><Link to="/api/home">About</Link></li>
+                        <li><Link to="/home">About</Link></li>
                         <li><Link to='/add/post'>Add Training</Link></li>
                         
                     </ul>
@@ -35,7 +43,25 @@ class About extends Component{
                 <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
         </header>
 
-        
+        <p
+        style={{
+            position: "relative",
+            // display:"flex",
+            width: "900px",
+            height: "400px",
+            marginTop: "100px",
+            marginLeft: "500px",
+            textAlign: "center",
+            // justifyContent: "center",
+            // alignItems: "center",
+            
+            color: "white"
+        }}> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+            sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </p>
+    
     </div>
     )
 }

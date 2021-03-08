@@ -45,7 +45,8 @@ module.exports = {
     deletePost: async (req, res) => {
         const db = req.app.get('db')
         const {post_id} = req.params
-        const {userId} = req.session.user
+        const userId = 1 
+        // const {userId} = req.session.user
         const post = await db.Posts.delete_post([post_id, userId])
         res.status(200).send(post)
     }

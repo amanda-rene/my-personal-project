@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {addPost} from '../redux/postReducer';
-import 'antd/dist/antd.css';
+
 import TextField from '@material-ui/core/TextField'
 import {Link} from 'react-router-dom'
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
@@ -72,7 +72,7 @@ class Post extends Component{
     
         return (
             <div>
-                <header className='header'>
+                <header className='header'><h1>Add Training</h1>
                     <nav className={`nav-bar ${this.state.toggleShow ? "show" : ""}`}>
                     <ul>
                         <li><Link to="/home">Home</Link></li>
@@ -83,11 +83,11 @@ class Post extends Component{
                     </ul>
                 </nav>
                 <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
-                <h1>Add Training</h1>
+                
                 </header>
 
 
-               <form onSubmit={this.addPost}>
+               <form className='form-field' onSubmit={this.addPost}>
                    <h3>Technique</h3>
                    <input
                     type='text'
