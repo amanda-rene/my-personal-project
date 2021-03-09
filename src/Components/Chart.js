@@ -43,6 +43,7 @@ class Chart extends React.Component {
       label: 'Days Trained',
       backgroundColor: 'rgba(75,192,192,1)',
       borderColor: 'rgba(0,0,0,1)',
+      hoverBackgroundColor: "rgba(255,99,132,1)",
       borderWidth: 2,
       data: [january, february, march, april, may, june, july]
     }
@@ -55,19 +56,21 @@ class Chart extends React.Component {
         <Bar
         
           data={data}
-          width={500}
+          width={700}
           height={200}
 
           options={{
             title:{
               display:true,
               text:'Monthly Training Totals',
+              color: 'rgba(255, 255, 255, 1)',
               fontSize:20,
               maintainAspectRatio: false
             },
             legend:{
               display:true,
-              position:'right'
+              position:'right',
+              
             }
           }}
         />

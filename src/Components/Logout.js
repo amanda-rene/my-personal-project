@@ -27,7 +27,7 @@ class Logout extends Component {
         <div>
             <header className='header'><h1>You've successfully logged out!</h1></header>
 
-            <nav className={`nav-bar ${this.state.toggleShow ? "show" : ""}`}>
+            {/* <nav className={`nav-bar ${this.state.toggleShow ? "show" : ""}`}>
                     <ul>
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to='/logout'>Logout</Link></li>
@@ -36,11 +36,12 @@ class Logout extends Component {
                         
                     </ul>
                 </nav>
-                <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
+                <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/> */}
             <div>
             
-            <p> Return to Login
-                <Link to='/login'>Login/Signup</Link>
+            <p> Return to <br></br>
+                
+                <Link to='/login'>Login</Link>
             </p>
          </div> 
         </div>

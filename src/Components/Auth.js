@@ -75,54 +75,14 @@ class Auth extends Component {
                 name='password'
                 value={this.state.password}
                 onChange={this.changeHandler}/>
-
+                <br></br>
                 <button 
-               
+                className='btn draw-border'
                 type='submit'
                 value='Login'
-                style={{
-                        background: "#3D94F6",
-                        backgroundImage: "-webkit-linear-gradient(top, #3D94F6, #1E62D0)",
-                        backgroundImage: "-moz-linear-gradient(top, #3D94F6, #1E62D0)",
-                        backgroundImage: "-ms-linear-gradient(top, #3D94F6, #1E62D0)",
-                        backgroundImage: "-o-linear-gradient(top, #3D94F6, #1E62D0)",
-                        backgroundImage: "-webkit-gradient(to bottom, #3D94F6, #1E62D0)",
-                        // -webkit-border-radius: "20px",
-                        // -moz-border-radius: "20px",
-                        borderRadius: "20px",
-                        height: "7px",
-                        lineHeight: "7px",
-                        color: "#FFFFFF",
-                        fontFamily: "Brush Script MT",
-                        width: "92px",
-                        fontSize: "16px",
-                        padding: "13px",
-                        webkitBoxShadow: "inset 1px 1px 20px 0 #934003",
-                        mozBoxShadow: "inset 1px 1px 20px 0 #934003",
-                        boxShadow:" inset 1px 1px 20px 0 #934003",
-                        textShadow: "1px 1px 20px #000000",
-                        border: "groove #B54705 1px",
-                        textDecoration: "none",
-                        display: "inline-block",
-                        cursor:" pointer",
-                        textAlign: "center"
-                      }
-                      
-                    //   button:hover {
-                    //     border: ridge #337FED 1px,
-                    //     background: #1E62D0,
-                    //     background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6),
-                    //     background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6),
-                    //     background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6),
-                    //     background-image: -o-linear-gradient(top, #1E62D0, #3D94F6),
-                    //     background-image: -webkit-gradient(to bottom, #1E62D0, #3D94F6),
-                    //     -webkit-border-radius: 20px,
-                    //     -moz-border-radius: 20px,
-                    //     border-radius: 20px,
-                    //     text-decoration: none
-                    //   } 
-                }>Login</button>
-                <button  onClick={this.toggleNewUser}>Sign Up!</button>
+                >Login</button>
+                <br></br>
+                <button className='btn draw-border'  onClick={this.toggleNewUser}>Sign Up!</button>
             </form>
             :
             
@@ -151,11 +111,13 @@ class Auth extends Component {
                 name='password'
                 value={this.state.password}
                 onChange={this.changeHandler}/>
-
+                <br></br>
                 <input
+                className='btn draw-border'
                 type='Submit'
                 value='Login'/>
-                <button className='button' onClick={this.toggleNewUser}>Register Here!</button>
+                <br></br>
+                <button className='btn draw-border' onClick={this.toggleNewUser}>Register Here!</button>
             </form>
         }
         

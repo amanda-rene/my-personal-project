@@ -1,103 +1,79 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,700,900');
+//=== Drawing effect
 
-$anim-text-offset: 1em;
-
-body{
-  font-family: 'Work Sans', sans-serif;
-  background: #111;
-  text-align: center;
-}
-.wrapper{
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.button{
-  // touch-callout: none;
-  user-select: none;
-  display: inline-block;
-  border: .2em solid;
+@mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
   position: relative;
-  cursor: pointer;
-  overflow: hidden;
-  opacity: 0.6;
-  color: #FFF;
-  &__text{
-    display: block;
-    padding:1em 2em;
-    text-transform: uppercase;
-    font-weight: bold;
-    &:before{
-      content: attr(title);
-    }
-    &--bis{
-      display: block;
-      position: absolute;
-      top: 0; left:0; right: 0; bottom: 0;
-      transform: translateX(-1 * $anim-text-offset);
-      opacity: 0;
-    }
-  }
-  &__mask{
-    display: block;
+  
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: white;
-    transform: translateX(-100%) rotate(45deg);
-    transition: all 0.3s;
-  }  
-}
+    width: 0; height: 0;
+    
+    #{$vertical}: 0; 
+    #{$horizontal}: 0;
+  }
 
-.button:hover{
-  opacity: 1;
-  .button__text{
-    animation: fx-text .3s ease-out;
-    &--bis{
-      animation: fx-text-bis .3s ease-out;
+  &::before {
+    $h-side: if($horizontal == 'left', 'right', 'left');
+    
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+  
+  &::after {
+    $v-side: if($vertical == 'top', 'bottom', 'top');
+    
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+  
+  &:hover {
+    color: $hover;
+    
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
     }
-  }    
-  .button__mask{
-    animation: fx-mask .3s ease-out;
-  }    
-}
-
-.button:active{
-  opacity: 1;
-  background: white;
-  color: inherit;
-}
-
-
-
-@keyframes fx-mask {
-  0%{
-    transform: translateX(-100%) rotate(45deg);
-  }
-  100%{
-    transform: translateX(100%) rotate(45deg);
+    
+    &::before { transition-delay: 0s, 0s, $duration; }
+    
+    &::after { transition-delay: 0s, $duration, 0s; }
   }
 }
 
-@keyframes fx-text {
-  0%{
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100%{
-    transform: translateX($anim-text-offset);
-    opacity: 0;
-  }
+.draw-border {
+  @include btn-border-drawing(#58afd1, #ffe593, 4px, bottom, right);
 }
-@keyframes fx-text-bis {
-  0%{
-    transform: translateX(-1 * $anim-text-offset);
-    opacity: 0;
-  }
-  100%{
-    transform: translateX(0);
-    opacity: 1;
-  }
+
+//=== Button styling, semi-ignore
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+  
+  &:focus { outline: 2px dotted #55d7dc; }
+}
+
+
+
+body {
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: url('images/gym.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* display: flex; */
 }

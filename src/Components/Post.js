@@ -90,6 +90,7 @@ class Post extends Component{
                <form className='form-field' onSubmit={this.addPost}>
                    <h3>Technique</h3>
                    <input
+                   className='form-field'
                     type='text'
                     placeholder='technique'
                     name='technique'
@@ -98,6 +99,7 @@ class Post extends Component{
                 <br></br>
                     <h3>Notes</h3>
                     <input
+                    className='form-field'
                     type='text'
                     placeholder='notes'
                     name='notes'

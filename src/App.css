@@ -1,3 +1,85 @@
+.draw-border {
+  -webkit-box-shadow: inset 0 0 0 4px #58afd1;
+          box-shadow: inset 0 0 0 4px #58afd1;
+  color: #58afd1;
+  -webkit-transition: color 0.25s 0.08333s;
+  transition: color 0.25s 0.08333s;
+  position: relative;
+}
+
+.draw-border::before, .draw-border::after {
+  border: 0 solid transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  border-radius: 20px;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+
+.draw-border:hover {
+  color: #ffe593;
+}
+
+.draw-border:hover::before, .draw-border:hover::after {
+  border-color: #ffe593;
+  -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+
+.draw-border:hover::before {
+  -webkit-transition-delay: 0s, 0s, 0.25s;
+          transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+  -webkit-transition-delay: 0s, 0.25s, 0s;
+          transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn {
+  
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 14px 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+  height: 60px;
+  width: 110px;
+  border-radius: 20px;
+}
+
+.btn:focus {
+  outline: 2px dotted #2e738f;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: url("images/gym.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* display: flex; */
+}
+
 .App {
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -79,6 +161,7 @@ h1 {
   justify-content: center;
   align-items: center;
   fill: none;
+  background-color: transparent;
 }
 
 .reg-form{
@@ -92,52 +175,14 @@ h1 {
   color: white;
   background: transparent;
   border: 0;
-  border-bottom: 2px solid aliceblue;
+  border-bottom: 2px solid rgb(211, 214, 163);
   outline: 0;
   padding: 10px;
+  width: 200px;
+  height:40px;
 }
 
-button {
-  background: #3D94F6;
-  background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
-  background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
-  background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
-  background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
-  background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  height: 7px;
-  line-height: 7px;
-  color: #FFFFFF;
-  font-family: Brush Script MT;
-  width: 92px;
-  font-size: 16px;
-  padding: 13px;
-  -webkit-box-shadow: inset 1px 1px 20px 0 #934003;
-  -moz-box-shadow: inset 1px 1px 20px 0 #934003;
-  box-shadow: inset 1px 1px 20px 0 #934003;
-  text-shadow: 1px 1px 20px #000000;
-  border: groove #B54705 1px;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  text-align: center;
-}
 
-button:hover {
-  border: ridge #337FED 1px;
-  background: #1E62D0;
-  background-image: -webkit-linear-gradient(top, #1E62D0, #3D94F6);
-  background-image: -moz-linear-gradient(top, #1E62D0, #3D94F6);
-  background-image: -ms-linear-gradient(top, #1E62D0, #3D94F6);
-  background-image: -o-linear-gradient(top, #1E62D0, #3D94F6);
-  background-image: -webkit-gradient(to bottom, #1E62D0, #3D94F6);
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  text-decoration: none;
-}
 
 /* header > div {
   margin: 0 auto;
@@ -217,3 +262,4 @@ button:hover {
   height: 500px;
   width: 500px;
 }
+/*# sourceMappingURL=app.css.map */

@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import DeleteIcon from '@material-ui/icons/Delete'
 import {connect} from 'react-redux';
 import {readPost, deletePost} from '../redux/postReducer'
-// import {Bar} from 'react-chartjs-2'
+import moment from 'moment'
 import axios from 'axios'
 import Chart from './Chart'
 
@@ -50,9 +51,9 @@ class Home extends Component{
       
     render(){
     // console.log(this.props)
-    const readPost = this.props.post.map((p)=> (<p>Date Trained: {p.dateTrained} Technique: {p.technique} Notes: {p.notes} 
-    <button onClick={() => this.handleDelete(p.post_id)}>Delete</button> 
-    <button onClick={() => this.handleEdit(p.post_id)}>Edit</button></p> )      
+    const readPost = this.props.post.map((p)=> (<p>Date Trained: {moment(p.dateTrained).format('ll')} <br></br>Technique: {p.technique} <br></br>Notes: {p.notes} 
+    <br></br><DeleteIcon onClick={() => this.handleDelete(p.post_id)} alt='delete-icon'/><br></br>
+    <button className='btn draw-border' onClick={() => this.handleEdit(p.post_id)} >Edit</button></p> )      
         )
     
   
@@ -68,11 +69,11 @@ class Home extends Component{
                         
                     </ul>
                 </nav>
-                <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
+                <MenuRoundedIcon onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
         
         </header>
 
-     
+        
 
         <div 
         style={{
