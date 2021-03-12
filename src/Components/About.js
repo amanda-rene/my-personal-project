@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import MenuRoundedIcon from '@material-ui/icons/MenuOpenRounded';
 
 class About extends Component{
 
@@ -30,7 +30,7 @@ class About extends Component{
                 color: "aqua",
                 
             }}
-        >About 'whatever my app name is'</h1>
+        >About MyBJJTracker</h1>
         <nav className={`nav-bar ${this.state.toggleShow ? "show" : ""}`}>
                     <ul>
                         <li><Link to="/home">Home</Link></li>

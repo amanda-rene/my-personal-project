@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {readPost, deletePost} from '../redux/postReducer'
 import moment from 'moment'
 import axios from 'axios'
-// import Chart from './Chart'
+
 
 
 class Home extends Component{

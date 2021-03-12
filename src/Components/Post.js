@@ -5,7 +5,7 @@ import {addPost} from '../redux/postReducer';
 
 import TextField from '@material-ui/core/TextField'
 import {Link} from 'react-router-dom'
-import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import MenuRoundedIcon from '@material-ui/icons/MenuOpenRounded';
 
 
 class Post extends Component{
@@ -38,12 +38,7 @@ class Post extends Component{
         }
     }
 
-    // componentDidMount(){
-    //     axios.post('api/add/post')
-    //     .then (res => {
-    //         this.setState({...res.data, newPost:true})
-    //     })
-    // }
+   
 
     changeHandler = (e) => {
         // console.log(e.target.value)
@@ -79,7 +74,7 @@ class Post extends Component{
                         <li><Link to='/logout'>Logout</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to='/add/post'>Add Training</Link></li>
-                        
+                        <li><Link to = '/display'>Display</Link></li>
                     </ul>
                 </nav>
                 <MenuRoundedIcon onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
@@ -122,7 +117,7 @@ class Post extends Component{
                     onChange={this.changeHandler}/>
                 <br></br>
                 <br></br>
-                <input className='btn draw-border' type='submit' value='Add Post' onClick={this.toggleNewPost}/>
+                <button className='btn draw-border' type='submit' value='Add Post' onClick={this.toggleNewPost}>Add Post</button>
                
                </form>
                 

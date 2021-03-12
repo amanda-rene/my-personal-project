@@ -108,6 +108,8 @@ toggleShowFunc = () => {
             }
           }}
         />
+      <p className='danaher'><img src='https://media3.giphy.com/media/ZZqGbYItJ7ymDZ17WZ/giphy.gif?cid=ecf05e47qsbzqkuz3mywbh66qas5vfgas0av74quclrpoj47&rid=giphy.gif'></img></p>
+
       </div>
     );
   }

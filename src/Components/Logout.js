@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+// import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 import {Link} from 'react-router-dom';
 
 
@@ -7,20 +7,20 @@ import {Link} from 'react-router-dom';
 class Logout extends Component {
 
 
-    constructor(){
-        super();
-        this.state = {
-            toggleShow: false
-        }
-    }
+    // constructor(){
+    //     super();
+    //     this.state = {
+    //         toggleShow: false
+    //     }
+    // }
 
-    toggleShowFunc = () => {
-        this.setState((prevState)=> {
-            return{
-            toggleShow: !prevState.toggleShow
-            }
-        })
-    }
+    // toggleShowFunc = () => {
+    //     this.setState((prevState)=> {
+    //         return{
+    //         toggleShow: !prevState.toggleShow
+    //         }
+    //     })
+    // }
 
     render (){
     return(
