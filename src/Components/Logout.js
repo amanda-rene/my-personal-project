@@ -37,11 +37,17 @@ class Logout extends Component {
                     </ul>
                 </nav>
                 <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/> */}
+               <p className='danaher'> <img  src="https://media4.giphy.com/media/YSYuuVZvByVKuavdXv/giphy.gif?cid=ecf05e47g4lp5d2nc2x1oahuuiov8nyzr99hvo12y23ghqz2&rid=giphy.gif"
+               style={{
+                   paddingTop: '200px',
+                   width: '300px',
+                   height: '300px'
+               }}></img></p>
             <div>
             
             <p> Return to <br></br>
                 
-                <Link to='/login'>Login</Link>
+                <Link className='link' to='/login'>Login</Link>
             </p>
          </div> 
         </div>

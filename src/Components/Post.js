@@ -82,12 +82,20 @@ class Post extends Component{
                         
                     </ul>
                 </nav>
-                <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
+                <MenuRoundedIcon onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
                 
                 </header>
 
 
-               <form className='form-field' onSubmit={this.addPost}>
+               <form 
+               className='form-field' 
+               onSubmit={this.addPost}
+               style={{
+                   display: 'flex',
+                   marginLeft: '850px',
+                   marginTop: '100px',
+                   paddingTop: '100px'
+               }}>
                    <h3>Technique</h3>
                    <input
                    className='form-field'
@@ -114,7 +122,7 @@ class Post extends Component{
                     onChange={this.changeHandler}/>
                 <br></br>
                 <br></br>
-                <input type='submit' value='Add Post' onClick={this.toggleNewPost}/>
+                <input className='btn draw-border' type='submit' value='Add Post' onClick={this.toggleNewPost}/>
                
                </form>
                 

@@ -35,26 +35,27 @@ class About extends Component{
                     <ul>
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to='/logout'>Logout</Link></li>
-                        <li><Link to="/home">About</Link></li>
+                        <li><Link to="/about">About</Link></li>
                         <li><Link to='/add/post'>Add Training</Link></li>
-                        
+                        <li><Link to='/display'>Display</Link></li>
                     </ul>
                 </nav>
-                <input onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
+                <MenuRoundedIcon onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
         </header>
 
         <p
         style={{
-            position: "relative",
-            // display:"flex",
-            width: "900px",
-            height: "400px",
-            marginTop: "100px",
-            marginLeft: "500px",
-            textAlign: "center",
+            // position: "relative",
+            // // display:"flex",
+            // width: "900px",
+            // height: "400px",
+            // marginTop: "100px",
+            // marginLeft: "500px",
+            // textAlign: "center",
             // justifyContent: "center",
             // alignItems: "center",
-            
+            padding: '250px',
+            // width: '50%',
             color: "white"
         }}> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 

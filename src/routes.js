@@ -5,6 +5,7 @@ import Logout from './Components/Logout'
 import About from './Components/About'
 import Post from './Components/Post'
 import Home from './Components/Home'
+import Chart from './Components/Chart'
 
 export default (
     <Switch>
@@ -13,5 +14,6 @@ export default (
         <Route path='/about' component={About}/>
         <Route path='/add/post' component={Post}/>
         <Route path='/home' component={Home}/>
+        <Route path='/display' component={Chart}/>
     </Switch>
 )

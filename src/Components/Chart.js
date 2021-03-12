@@ -2,11 +2,27 @@ import React from 'react';
 import {Bar} from 'react-chartjs-2';
 import {connect} from 'react-redux'
 import moment from 'moment';
-
+import {Link} from 'react-router-dom'
+import MenuRoundedIcon from '@material-ui/icons/MenuOpenRounded'
 
 class Chart extends React.Component {
 
-        
+  constructor(props){
+    super(props);
+    this.state = {
+        toggleShow: false,
+
+    }
+}
+
+
+toggleShowFunc = () => {
+  this.setState((prevState)=> {
+      return{
+      toggleShow: !prevState.toggleShow
+      }
+  })
+}
 
   render() {
     
@@ -53,6 +69,24 @@ class Chart extends React.Component {
     
     return (
       <div>
+        <header className='header'><h1>Training Totals</h1>
+      
+        <nav className={`nav-bar ${this.state.toggleShow ? "show" : ""}`}>
+                    <ul>
+                        <li><Link to="/home">Home</Link></li>
+                        <li><Link to='/logout'>Logout</Link></li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to='/add/post'>Add Training</Link></li>
+                        <li><Link to='/display'>Display</Link></li>
+                    </ul>
+                </nav>
+                <MenuRoundedIcon onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
+
+</header>
+        
+        <p
+        style={{paddingTop: '200px', color:'white'}}>Here are your training totals for the year!</p>
+
         <Bar
         
           data={data}

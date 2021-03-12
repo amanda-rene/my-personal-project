@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import MenuRoundedIcon from '@material-ui/icons/MenuOpenRounded';
 import DeleteIcon from '@material-ui/icons/Delete'
 import {connect} from 'react-redux';
 import {readPost, deletePost} from '../redux/postReducer'
 import moment from 'moment'
 import axios from 'axios'
-import Chart from './Chart'
+// import Chart from './Chart'
 
 
 class Home extends Component{
@@ -43,17 +43,13 @@ class Home extends Component{
 
     }
 
-    // handleEdit = postId => {
-    //     axios.put(`/api/post/${postId}`)
-    //     .then(res => {this.props.deletePost(res.data)} )
-    // }
-  
-      
+
+    
     render(){
     // console.log(this.props)
-    const readPost = this.props.post.map((p)=> (<p>Date Trained: {moment(p.dateTrained).format('ll')} <br></br>Technique: {p.technique} <br></br>Notes: {p.notes} 
+    const readPost = this.props.post.map((p)=> (<p className='read'>Date Trained: {moment(p.dateTrained).format('ll')} <br></br>Technique: {p.technique} <br></br>Notes: {p.notes} 
     <br></br><DeleteIcon onClick={() => this.handleDelete(p.post_id)} alt='delete-icon'/><br></br>
-    <button className='btn draw-border' onClick={() => this.handleEdit(p.post_id)} >Edit</button></p> )      
+    <button className='btn draw-border'><Link className='link' to='/add/post'>Edit</Link></button></p> )      
         )
     
   
@@ -66,7 +62,7 @@ class Home extends Component{
                         <li><Link to='/logout'>Logout</Link></li>
                         <li><Link to="/about">About</Link></li>
                         <li><Link to='/add/post'>Add Training</Link></li>
-                        
+                        <li><Link to='/display'>Display</Link></li>
                     </ul>
                 </nav>
                 <MenuRoundedIcon onClick={this.toggleShowFunc} alt='menu-icon' type='image' src={MenuRoundedIcon} id='nav-btn'/>
@@ -77,11 +73,15 @@ class Home extends Component{
 
         <div 
         style={{
-            color: 'white'
+            color: 'white',
+            paddingTop: '150px',
+            display: 'grid',
+            flexWrap: 'wrap'
+           
         }}>
             {readPost}
            
-           <Chart/>
+           {/* <Chart/> */}
             
         </div>
         

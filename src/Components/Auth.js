@@ -59,7 +59,8 @@ class Auth extends Component {
             {!this.state.newUser ?
             
             <form className='login-form' onSubmit={this.login}>
-                <h2>Login</h2>
+                <h2
+                style={{color: 'white'}}>Login</h2>
                 <input
                 className='form-field'
                 type='text'
