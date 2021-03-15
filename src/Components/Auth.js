@@ -55,7 +55,7 @@ class Auth extends Component {
 
     render(){
         return <div className='auth'>
-            <header className='header'><h1>Welcome!!!</h1></header>
+            <header className='header'><h1>Welcome to MyBJJTracker!!!</h1></header>
             {!this.state.newUser ?
             
             <form className='login-form' onSubmit={this.login}>

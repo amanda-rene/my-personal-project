@@ -140,9 +140,9 @@ body {
   border-radius: 20px;
 }
 
-.btn:focus {
+/* .btn:focus {
   outline: 2px dotted #2e738f;
-}
+} */
 
 body {
   margin: 0;
@@ -150,6 +150,7 @@ body {
   background: url("images/gym.jpg") no-repeat center center fixed;
   background-size: cover;
   background-repeat: no-repeat;
+  background-blend-mode: soft-light;
   /* display: flex; */
 }
 

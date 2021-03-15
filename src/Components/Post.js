@@ -107,7 +107,8 @@ class Post extends Component{
                     placeholder='notes'
                     name='notes'
                     value={this.state.notes}
-                    onChange={this.changeHandler}/>
+                    onChange={this.changeHandler}
+                    />
               
                 <h3>Date Trained</h3>
                 <TextField

@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
+const  path = require('path')
 
 const {SESSION_SECRET, CONNECTION_STRING} = process.env
 const SERVER_PORT = 4000
@@ -43,7 +44,8 @@ app.delete('/api/post/remove/:post_id', ctrl.deletePost);
 app.put('/api/post/:post_id', ctrl.editPost);
 app.get('/api/posts', ctrl.readPost);
 
+app.use(express.static(__dirname + '/../build'))
 
-
+app.get('*', (req, res) => {res.sendFile(path.join(__dirname + '../build/index.js'))})
 
 app.listen(SERVER_PORT, () => console.log(`Listening on port: ${SERVER_PORT}`))

@@ -47,8 +47,11 @@ class Home extends Component{
     
     render(){
     // console.log(this.props)
-    const readPost = this.props.post.map((p)=> (<p className='read'>Date Trained: {moment(p.dateTrained).format('ll')} <br></br>Technique: {p.technique} <br></br>Notes: {p.notes} 
-    <br></br><DeleteIcon onClick={() => this.handleDelete(p.post_id)} alt='delete-icon'/><br></br>
+    const readPost = this.props.post.map((p)=> (<p className='read'>Date Trained: {moment(p.date_trained).format('ll')} <br></br>Technique: {p.technique} <br></br>Notes: {p.notes} 
+
+    <br></br>
+    <DeleteIcon onClick={() => this.handleDelete(p.post_id)} alt='delete-icon'/>
+    <br></br>
     <button className='btn draw-border'><Link className='link' to='/add/post'>Edit</Link></button></p> )      
         )
     

@@ -45,17 +45,7 @@ class About extends Component{
 
         <p
         style={{
-            // position: "relative",
-            // // display:"flex",
-            // width: "900px",
-            // height: "400px",
-            // marginTop: "100px",
-            // marginLeft: "500px",
-            // textAlign: "center",
-            // justifyContent: "center",
-            // alignItems: "center",
             padding: '250px',
-            // width: '50%',
             color: "white"
         }}> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
